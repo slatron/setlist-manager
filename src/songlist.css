@@ -1,0 +1,113 @@
+.list-selector {
+  display: flex;
+  margin-bottom: var(--base-unit-half);
+  align-items: center;
+}
+
+.list-selector label {
+  margin-right: var(--base-unit);
+  font-weight: bold;;
+}
+
+.list-selector > .select-container {
+  flex: 1 0 auto;
+  margin-right: var(--base-unit);
+}
+
+.list-selector > button {
+  flex: 0 1 auto;
+}
+
+.songlist-container {
+  margin: var(--base-unit) 0;
+  padding: var(--base-unit);
+  border-radius: var(--base-rounded-corners);
+  border: 1px solid;
+} 
+
+.songlist-container.edit-mode {
+  margin: var(--base-unit);
+}
+
+.songlist {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+@media screen and (min-width: 600px) {
+  .songlist {
+    font-size: 1.25rem;
+  }
+}
+
+thead {
+  background-color: #cfcfcf;
+}
+
+th, td  {
+  padding: var(--base-unit-half);
+}
+
+.song-title {
+  font-weight: 700;
+}
+
+.short-col {
+  width: 25px;
+  text-align: center;
+}
+.name-col {
+  width: 35px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.highlight-controls {
+  display: flex;
+  align-items: center;
+}
+
+.highlight-controls select {
+  width: auto;
+}
+
+.highlight-controls > * {
+  margin-right: 0.5rem;
+}
+
+
+.color_Mandolin {
+  background-color: #e4afba !important;
+}
+.color_Bass {
+  background-color: #b1eab2 !important;
+}
+.color_Banjo {
+  background-color: #f3e9bd !important;
+}
+.color_Guitar {
+  background-color: #c7beda !important;
+}
+.color_Fiddle {
+  background-color: #c3dee8 !important;
+}
+.color_Electric {
+  background-color: #f3c28c !important;
+}
+.color_Harmonica {
+  background-color: #b1aca7 !important;
+}
+.color_Mike {
+  background-color: #e4afba !important;
+}
+.color_Carl {
+  background-color: #f3e9bd !important;
+}
+
+.highlight-legend span {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: var(--base-unit-quarter);
+  margin-right: var(--base-unit-quarter);
+}
