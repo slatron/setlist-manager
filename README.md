@@ -6,31 +6,33 @@ This was built to help my band track common setlists built on our song catalog. 
 
 - Store songs band can play
 - Store setlists of songs
+- Starts in guest Readonly mode for selecting and viewing setlists
 - Display setlist color-coded by singer or member instrument
-- Public Readonly mode for setlists
 - Auth protected admin
-- Admins can directly edit setlist page
+- Integrated design with Mike Slater sites
+- Logged in users can directly edit setlist page and enter admin section of site
 
 We need to arrange our setlists minimizing instrument changes for each band member. Color coding should assist in optimizing the setlists.
 
 ### Features
 
 - Print view
-- Admin to update members
+- Admin to update members, instruments, songs, setlists
 - Drag/Drop UI for setlist editings
 - Mobile friendly setlist editing
 
-### Initial UI Flow
+### UI Flow
 
 ```mermaid
 flowchart TD
-    A{Logged In?} -->|no| B[Display Login Form]
-    B --> |login success|D
-    B --> |Anonymous Auth login|D
-    A -->|yes| D[Display Setlist Page]
-    D --> E(get setlists)
-    E --> F[User Selects List]
-    F --> G[Display Selected List]
+    Init(Login User Anonymously) --> A[Display Setlist Page] --> B(get setlists)
+    B --> C[User Selects List]
+    C --> D[Display Selected List] --> C
+    
+    A --> |User Clicks 'Admin'|AdminA[Display Song / Songlist Admin]
+
+    A --> |User Clicks 'Login'|AuthA[Display Login Form]
+    AuthA --> |Success or Close Form|A
 ```
 
 ### Demo

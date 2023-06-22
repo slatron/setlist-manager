@@ -28,7 +28,7 @@ const methods = {
     const auth = getAuth()
     return signInWithEmailAndPassword(auth, email, pass)
       .then((response) => {
-        console.log('email login response: ', response)
+        // console.log('email login response: ', response)
         console.log('...you are signed in!')
       })
       .catch((error) => {
@@ -42,7 +42,7 @@ const methods = {
     const auth = getAuth();
     signInAnonymously(auth)
       .then((response) => {
-        console.log('guest login response: ', response)
+        // console.log('guest login response: ', response)
         console.log('...you are signed in as a guest!')
       })
       .catch((error) => {

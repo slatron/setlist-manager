@@ -2,21 +2,19 @@
 import { useState, useEffect } from 'react'
 import api from './api'
 
+
 export const useFetchAuth = () => {
   const [ user, setUser ] = useState({})
   const [ loading, setLoading ] = useState(true)
 
   useEffect(() => {
     setLoading(true)
-    api.getLoginObserver((user) => {
-        console.log({user})
-        setUser({
-            name: user.email || 'Guest',
-            logged_in: user.email ? true : false
-        })
-        setLoading(false)
+    const loader = api.getLoginObserver((newUser) => {
+      setUser(newUser)
+      setLoading(false);
+      if (window.location.pathname !== '/') window.location.assign('/');
     })
-
+    return () => loader()
   }, [])
 
   return { loading, user }

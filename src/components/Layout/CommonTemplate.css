@@ -1,0 +1,17 @@
+
+.wrapper {
+  max-width: var(--wrapper-width);
+  margin: 0 auto;
+}
+main {
+  padding-top: var(--header-height);
+  z-index: var(--layer-main-body);
+  height: 100%;
+}
+
+#lifetracker,
+#app-container,
+.main-content-lifetracker  {
+  height: 100%;
+  position: relative;
+}

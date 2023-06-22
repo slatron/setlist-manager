@@ -1,13 +1,25 @@
 :root {
-  --accent-color-dark: #582525;
-  --accent-color-light: #ac8a8a;
+  font-size: 16px;
+  box-sizing: border-box;
+
+  --accent-color-dark: #144260;
+  --accent-color-light: #0b9afb;
   --color-black: #333;
   --color-white: #f7f5f7;
-  --base-unit: 1em;
-  --base-unit-half: 0.5em;
-  --base-unit-quarter: 0.25em;
+  --base-unit: 1rem;
+  --base-unit-half: 0.5rem;
+  --base-unit-quarter: 0.25rem;
   --base-rounded-corners: 6px;
   --base-unit-double: 2em;
+  --brand-color: #0b9afb;
+
+  --wrapper-width: 1600px;
+  --header-height: 44px;
+  --layer-main-body: 1;
+  --layer-top-elements: 1000;
+  --drawer-width: 175px;
+  --drawer-max-height: 500px;
+  --transtion-drawer: all 0.3s ease-in-out;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,7 +34,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -57,6 +72,14 @@ select {
 }
 
 hr { margin: var(--base-unit) 0; }
+
+thead {
+  background-color: #cfcfcf;
+}
+
+th, td  {
+  padding: var(--base-unit-half);
+}
 
 tr:nth-child(even) {
   background: #efefef;
@@ -101,3 +124,8 @@ button.delete {
 .float-right { float: right; }
 .align-right { text-align: right; }
 .hand {cursor: pointer; }
+
+.vertical-align-container {
+  display: flex;
+  align-items: center;
+}

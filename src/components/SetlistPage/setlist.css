@@ -41,14 +41,6 @@
   }
 }
 
-thead {
-  background-color: #cfcfcf;
-}
-
-th, td  {
-  padding: var(--base-unit-half);
-}
-
 .song-title {
   font-weight: 700;
 }
