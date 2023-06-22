@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import './Drawer.css'
 import { Link } from 'react-router-dom';
+import { PROMPT_LOGIN } from '/src/globals';
 
 const Drawer = ({drawerActive = false, user, toggleDrawer}) => {
   return (
@@ -20,7 +21,7 @@ const Drawer = ({drawerActive = false, user, toggleDrawer}) => {
         )}
         {user.isAnonymous && (
           <>
-            <li onClick={() => alert('Please login to view/edit songs')}>
+            <li onClick={() => alert(PROMPT_LOGIN)}>
               <span>Songs</span>
             </li>
             <li onClick={toggleDrawer}>

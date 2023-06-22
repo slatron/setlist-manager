@@ -1,0 +1,17 @@
+.list-admin {
+  border: 2px dashed var(--accent-color-dark);
+  padding: var(--base-unit);
+  margin: var(--base-unit) 0;
+}
+
+.list-admin input {
+  margin-right: var(--base-unit);
+}
+
+.list-admin input,
+.list-admin select {
+  margin-bottom: var(--base-unit-quarter);
+}
+ .list-admin h3 {
+   margin-bottom: var(--base-unit-quarter);
+ }

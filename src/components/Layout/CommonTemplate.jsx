@@ -9,7 +9,8 @@ const CommonTemplate = ({children, user}) => {
   const [drawerActive, setDrawerActive] = useState(false);
   const toggleDrawer = () => setDrawerActive(prev => !prev);
   const pathname = window.location.pathname;
-  const showLogout = user.isAnonymous === false && pathname !== '/login';
+  const showLogoutButton = user.isAnonymous === false && pathname !== '/login';
+  const showLoginButton = user.isAnonymous && pathname !== '/login';
 
   return (
     <>
@@ -19,7 +20,12 @@ const CommonTemplate = ({children, user}) => {
       <main>
         <div className="container-user-info">
           <span>Hello, {user.email || 'Guest'}</span>
-          {showLogout && <button type="button" onClick={() => api.guestLogin()}>logout</button>}
+          {showLogoutButton && (
+            <button type="button" onClick={() => api.guestLogin()}>logout</button>
+          )}
+          {showLoginButton && (
+            <button type="button" href="/login">login</button>
+          )}
         </div>
         {children}
       </main>

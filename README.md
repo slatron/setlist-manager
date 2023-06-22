@@ -48,4 +48,26 @@ flowchart TD
     AuthA --> |Success|A
 ```
 
+## Run This Locally
+
+Clone this repo and run `$ yarn install && npm run dev`
+
+This uses `Vite` to run the application locally
+
+### Firebase Setup
+
+You will need a [firebase](https://console.firebase.google.com/) instance to run the data for this application. 
+
+From your firebase console project settings, be sure you have a web-based app setup. Copy the `firebaseConfig` const from that page and export it from a new `/src/secrets.js` file.
+
+```javascript
+export const config = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
+};
+```
 
