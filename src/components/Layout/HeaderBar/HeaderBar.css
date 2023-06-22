@@ -68,15 +68,13 @@
   transform: translateY(-9px) rotate(-45deg);
 }
 
-.window-shade {
-  transition: var(--transtion-drawer);
-  opacity: 0.75;
-  z-index: 20;
-  top: var(--header-height);
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: hidden;
-  position: fixed;
-  background: var(--color-black);
+.container-user-info {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-user-info button {
+  margin-left: 1rem;
 }

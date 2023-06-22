@@ -9,21 +9,26 @@ const Drawer = ({drawerActive = false, user, toggleDrawer}) => {
       id="drawer"
       className={`${drawerActive ? 'active' : ''}`}
     >
-      <ul onClick={toggleDrawer}>
-        <li>
+      <ul>
+        <li onClick={toggleDrawer}>
           <Link to="/">Setlists</Link>
         </li>
         {user.isAnonymous === false && (
-          <li>
+          <li onClick={toggleDrawer}>
             <Link to="/songs">Songs</Link>
           </li>
         )}
         {user.isAnonymous && (
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
+          <>
+            <li onClick={() => alert('Please login to view/edit songs')}>
+              <span>Songs</span>
+            </li>
+            <li onClick={toggleDrawer}>
+              <Link to="/login">Login</Link>
+            </li>
+          </>
         )}
-        <li >
+        <li>
           <a href="http://www.mikeslater.com">mikeslater.com</a>
         </li>
       </ul>

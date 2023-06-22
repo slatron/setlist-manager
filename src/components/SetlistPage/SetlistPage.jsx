@@ -5,7 +5,7 @@ import {onValue, get, set, push, remove} from 'firebase/database';
 import CommonTemplate from '/src/components/Layout/CommonTemplate';
 
 import Setlist from './Setlist';
-// import SetlistAdmin from './SetlistAdmin';
+import SetlistAdmin from './SetlistAdmin';
 import SelectSetlist from './SelectSetlist';
 import HighlightControls from './HighlightControls';
 
@@ -156,16 +156,6 @@ const SetlistPage = ({user}) => {
   return  (
     <CommonTemplate {...{user}}>
       <div className="page-setlist">
-        <p>User name: {user.email || 'Guest'}</p>
-        {user.isAnonymous === false && <button type="button" onClick={() => api.guestLogin()}>logout</button>}
-        <HighlightControls
-          inLegend={inLegend}
-          highlight={highlight}
-          showMike={showMike}
-          showCarl={showCarl}
-          setShowMike={setShowMike}
-          setShowCarl={setShowCarl}
-          setHighlight={setHighlight}/>
         {editMode &&
           <SetlistAdmin
             title={setlistMap[selectedListId].title}
@@ -176,6 +166,14 @@ const SetlistPage = ({user}) => {
             songsNotInList={songsNotInList}
           />
         }
+        <HighlightControls
+          inLegend={inLegend}
+          highlight={highlight}
+          showMike={showMike}
+          showCarl={showCarl}
+          setShowMike={setShowMike}
+          setShowCarl={setShowCarl}
+          setHighlight={setHighlight}/>
         <SelectSetlist
           setSelectedListId={setSelectedListId}
           checkToggleEdit={checkToggleEdit}

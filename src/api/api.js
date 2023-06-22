@@ -30,11 +30,6 @@ const methods = {
       .then((response) => {
         // console.log('email login response: ', response)
         console.log('...you are signed in!')
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log({errorCode, errorMessage})
       });
   },
 

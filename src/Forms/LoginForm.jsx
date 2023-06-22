@@ -1,18 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 import api from '../api'
 import {useFormData} from './useFormData'
 import './forms.css'
 import CommonTemplate from '/src/components/Layout/CommonTemplate';
 
-const handleLogin = data => api.login(data.login_email, data.login_pass)
-
 const LoginForm = ({user}) => {
-  const {formData, handleSubmit, handleInputChange} = useFormData(handleLogin)
+  const {formData, handleSubmit, handleInputChange} = useFormData(handleLogin);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  function handleLogin(data) {
+    api.login(data.login_email, data.login_pass)
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log({errorCode, errorMessage, error});
+        setErrorMsg(errorMessage);
+      });
+  }
 
   return (
     <CommonTemplate {...{user}}>
       <div className="form-page-container">
+        {errorMsg.length > 0 && (
+          <div className="error-message">
+            {errorMsg}
+          </div>
+        )}
         <form className="basic-form" onSubmit={handleSubmit}>
           <div className="field-pair">
             <label htmlFor="login_email">Email </label>

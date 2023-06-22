@@ -6,12 +6,14 @@
   --accent-color-light: #0b9afb;
   --color-black: #333;
   --color-white: #f7f5f7;
+  --color-warning: #e77c7c;
+  --brand-color: #0b9afb;
+
   --base-unit: 1rem;
   --base-unit-half: 0.5rem;
   --base-unit-quarter: 0.25rem;
   --base-rounded-corners: 6px;
-  --base-unit-double: 2em;
-  --brand-color: #0b9afb;
+  --base-unit-double: 2rem;
 
   --wrapper-width: 1600px;
   --header-height: 44px;
@@ -42,9 +44,8 @@
 
 body {
   min-height: 100vh;
-  min-width: 320px;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
 }
 
 a {
@@ -71,14 +72,14 @@ select {
   width: 100%;
 }
 
-hr { margin: var(--base-unit) 0; }
+hr { margin: 1rem 0; }
 
 thead {
   background-color: #cfcfcf;
 }
 
 th, td  {
-  padding: var(--base-unit-half);
+  padding: 0.5rem;
 }
 
 tr:nth-child(even) {
@@ -87,7 +88,6 @@ tr:nth-child(even) {
 
 /* buttons */
 
-.btn,
 button {
   border: none;
   cursor: pointer;
@@ -99,13 +99,11 @@ button {
   text-decoration: none;
 }
 
-.btn,
 button.active {
   background: var(--accent-color-dark);
   color: #dfdfdf;
 }
 
-.btn:disabled ,
 button:disabled {
   opacity: 0.4;
 }
@@ -125,7 +123,16 @@ button.delete {
 .align-right { text-align: right; }
 .hand {cursor: pointer; }
 
+/* Common Customized Elements */
+
 .vertical-align-container {
   display: flex;
   align-items: center;
+}
+
+.error-message {
+  padding: 1rem;
+  background-color: var(--color-warning);
+  border: 1px solid var(--color-black);
+  border-radius: var(--base-rounded-corners);
 }

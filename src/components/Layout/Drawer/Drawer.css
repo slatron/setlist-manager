@@ -1,5 +1,5 @@
 #drawer {
-  top: var(--header-height);
+  top: calc(var(--header-height) - 1px);
   background: var(--brand-color);
   width: var(--drawer-width);
   left: calc(var(--drawer-width) * -1);
@@ -31,9 +31,22 @@
   background: var(--color-black);
 }
 
-#drawer li a {
+#drawer li a,
+#drawer li span {
   color: var(--color-white);
   display: block;
   padding: var(--base-unit-half);
 }
 
+.window-shade {
+  transition: var(--transtion-drawer);
+  opacity: 0.75;
+  z-index: 20;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  position: fixed;
+  background: var(--color-black);
+}

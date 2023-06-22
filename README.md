@@ -2,6 +2,8 @@
 
 This was built to help my band track common setlists built on our song catalog. It allows us to store songs and add them to setlists. This makes it easy to save and quickly edit setlists as we add songs and play shows.
 
+I am evolving it here to explore building an authenticated app with React and firebase. I'm using fiebase anonymous authentication to provide a basic read-only site. Logging in with an admin password enables all CRUD functions in the React UI. See the UI diagram below for moe details.
+
 ### Main Requirements
 
 - Store songs band can play
@@ -21,20 +23,29 @@ We need to arrange our setlists minimizing instrument changes for each band memb
 - Drag/Drop UI for setlist editings
 - Mobile friendly setlist editing
 
-### UI Flow
+### UI Flow - Guest and Admin
+
+If no firebase authentication token exists, user is logged in as an anonymous Guest user. 
+
+Guest users can only view existing setlists.They will be prompted to login if they attempt to use any admin features within the setlist page or navigate to the songs page.
 
 ```mermaid
 flowchart TD
-    Init(Login User Anonymously) --> A[Display Setlist Page] --> B(get setlists)
+    Init(Login User Anonymously) --> A[Display Setlist Page]
+
+    A --> B(get setlists)
     B --> C[User Selects List]
-    C --> D[Display Selected List] --> C
+    C --> |UserClicks 'Edit'|Edit{Guest?}
+    Edit --> |Yes|EditB[Prompt Login]
+    Edit --> |No|EditA[Display SetlistAdmin Component]
+    C --> D[Display Selected List]
     
-    A --> |User Clicks 'Admin'|AdminA[Display Song / Songlist Admin]
+    A --> |User clicks 'Songs'|Songs{Guest?}
+    Songs --> |No|AdminA[Display Song Admin]
+    Songs --> |Yes|AdminB[Prompt Login]
 
     A --> |User Clicks 'Login'|AuthA[Display Login Form]
-    AuthA --> |Success or Close Form|A
+    AuthA --> |Success|A
 ```
 
-### Demo
 
-[Github Pages](https://slatron.github.io/setlist-manager/)
