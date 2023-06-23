@@ -20,7 +20,7 @@ const App = () => {
   if (loadingUser) return <div className="loading">loading...</div>
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/setlist-manager">
       <Routes>
         <Route path="songs" element={<SongsPage {...{user}} />} />
         <Route path="login" element={<LoginForm {...{user}} />} />
