@@ -45,7 +45,7 @@ const Setlist = ({
     const songId = song[0];
     return (
       <Draggable key={songId} draggableId={songId} index={idx} isDragDisabled={!editMode}>
-        {(provided, snapshot) => (
+        {provided => (
           <tr
             ref={provided.innerRef}
             {...provided.draggableProps}
@@ -73,7 +73,7 @@ const Setlist = ({
       {setlist && 
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable">
-            {(provided, snapshot) => (
+            {provided => (
               <table className="songlist"
                 ref={provided.innerRef}
               >
