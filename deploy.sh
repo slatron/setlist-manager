@@ -55,4 +55,4 @@ git push origin gh-pages --force
 git checkout main
 
 ## reinstall deps on main branch
-npm install
+yarn install
