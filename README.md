@@ -16,7 +16,7 @@ I am evolving it here to explore building an authenticated app with React and fi
 
 We need to arrange our setlists minimizing instrument changes for each band member. Color coding should assist in optimizing the setlists.
 
-### Next Features
+### Upcoming Features
 
 - Print view
 - Admin to update members, instruments, songs, setlists
