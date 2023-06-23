@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import HeaderBar from './HeaderBar/HeaderBar';
 import Drawer from './Drawer/Drawer';
+import { Link } from 'react-router-dom';
 import api from '/src/api';
 
 import './CommonTemplate.css'
@@ -24,7 +25,7 @@ const CommonTemplate = ({children, user}) => {
             <button type="button" onClick={() => api.guestLogin()}>logout</button>
           )}
           {showLoginButton && (
-            <button type="button" href="/login">login</button>
+            <Link className="button" to="/login">login</Link>
           )}
         </div>
         {children}

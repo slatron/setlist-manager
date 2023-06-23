@@ -88,22 +88,30 @@ tr:nth-child(even) {
 
 /* buttons */
 
+.button,
 button {
   border: none;
   cursor: pointer;
   background: var(--accent-color-light);
-  color: var(--accent-color-dark);
+  color: var(--color-white);
   border-radius: var(--base-rounded-corners);
-  padding: 5px 10px;
+  padding: 0.1rem 0.5rem;
   font-weight: bold;
   text-decoration: none;
 }
 
-button.active {
+.button.active,
+button:active {
   background: var(--accent-color-dark);
-  color: #dfdfdf;
+  color: var(--color-white);
 }
 
+.button:hover,
+button:hover {
+  color: var(--color-white);
+}
+
+.button.disabled,
 button:disabled {
   opacity: 0.4;
 }

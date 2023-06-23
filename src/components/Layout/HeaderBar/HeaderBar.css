@@ -75,6 +75,7 @@
   align-items: center;
 }
 
-.container-user-info button {
+.container-user-info button,
+.container-user-info .button {
   margin-left: 1rem;
 }
