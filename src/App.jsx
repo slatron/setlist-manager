@@ -14,13 +14,15 @@ import {
 
 import './globals.css'
 
+const basename = window.location.pathname;
+
 const App = () => {
   const { loadingUser, user } = useFetchAuth();
   useEffect(() => api.guestLogin(), []);
   if (loadingUser) return <div className="loading">loading...</div>
 
   return (
-    <BrowserRouter basename="/setlist-manager">
+    <BrowserRouter {...{basename}}>
       <Routes>
         <Route path="songs" element={<SongsPage {...{user}} />} />
         <Route path="login" element={<LoginForm {...{user}} />} />
