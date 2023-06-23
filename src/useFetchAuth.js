@@ -9,7 +9,6 @@ export const useFetchAuth = () => {
   useEffect(() => {
     setLoading(true)
     const loader = api.getLoginObserver((newUser) => {
-      console.log({newUser});
       setUser(newUser);
       setLoading(false);
     })
