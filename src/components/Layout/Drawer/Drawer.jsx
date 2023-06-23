@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PROMPT_LOGIN } from '/src/globals';
 
 const Drawer = ({drawerActive = false, user, toggleDrawer}) => {
+  console.log('DRAWER: ', {user});
   return (
     <nav
       id="drawer"

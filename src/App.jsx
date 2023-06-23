@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import {useFetchAuth} from './useFetchAuth'
 import LoginForm from './Forms/LoginForm'
 import SetlistPage from './components/SetlistPage';
 import SongsPage from './components/Songs/SongsPage';
+import api from './api'
 
 import * as ReactDOM from "react-dom/client";
 import {
@@ -13,7 +15,8 @@ import {
 import './globals.css'
 
 const App = () => {
-  const { loadingUser, user } = useFetchAuth()
+  const { loadingUser, user } = useFetchAuth();
+  useEffect(() => api.guestLogin(), []);
   if (loadingUser) return <div className="loading">loading...</div>
 
   return (

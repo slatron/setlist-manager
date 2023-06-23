@@ -4,6 +4,7 @@ import api from '../api'
 import {useFormData} from './useFormData'
 import './forms.css'
 import CommonTemplate from '/src/components/Layout/CommonTemplate';
+import { Navigate } from "react-router-dom";
 
 const LoginForm = ({user}) => {
   const {formData, handleSubmit, handleInputChange} = useFormData(handleLogin);
@@ -11,17 +12,15 @@ const LoginForm = ({user}) => {
 
   function handleLogin(data) {
     api.login(data.login_email, data.login_pass)
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log({errorCode, errorMessage, error});
-        setErrorMsg(errorMessage);
-      });
+      .catch((error) => setErrorMsg(error.message));
   }
 
   return (
     <CommonTemplate {...{user}}>
       <div className="form-page-container">
+        {user.isAnonymous === false && (
+          <Navigate to="/" replace={true} />
+        )}
         {errorMsg.length > 0 && (
           <div className="error-message">
             {errorMsg}

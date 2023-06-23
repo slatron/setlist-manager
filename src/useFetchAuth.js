@@ -9,9 +9,9 @@ export const useFetchAuth = () => {
   useEffect(() => {
     setLoading(true)
     const loader = api.getLoginObserver((newUser) => {
-      setUser(newUser)
+      console.log({newUser});
+      setUser(newUser);
       setLoading(false);
-      if (window.location.pathname === '/login') window.location.assign('/');
     })
     return () => loader()
   }, [])
