@@ -13,6 +13,8 @@ I am evolving it here to explore building an authenticated app with React and fi
 - Auth protected admin
 - Integrated design with Mike Slater sites
 - Logged in users can directly edit setlist page and enter admin section of site
+- Drag/Drop UI for setlist editings
+- Mobile friendly setlist editing
 
 We need to arrange our setlists minimizing instrument changes for each band member. Color coding should assist in optimizing the setlists.
 
@@ -20,8 +22,7 @@ We need to arrange our setlists minimizing instrument changes for each band memb
 
 - Print view
 - Admin to update members, instruments, songs, setlists
-- Drag/Drop UI for setlist editings
-- Mobile friendly setlist editing
+- [Improve Login Prompt Message](https://trello.com/c/IZxp8R7Z)
 
 ## UI Flow - Guest and Admin
 
@@ -54,6 +55,8 @@ Clone this repo and run `$ yarn install && npm run dev`
 
 This uses `Vite` to run the application locally
 
+Created with `node v18.16.0`
+
 ### Firebase Setup
 
 You will need a [firebase](https://console.firebase.google.com/) instance to run the data for this application. 
@@ -61,7 +64,7 @@ You will need a [firebase](https://console.firebase.google.com/) instance to run
 From your firebase console project settings, be sure you have a web-based app setup. Copy the `firebaseConfig` const from that page and export it from a new `/src/secrets.js` file.
 
 ```javascript
-export const config = {
+export const firebaseConfig = {
   apiKey: "",
   authDomain: "",
   projectId: "",

@@ -27,10 +27,6 @@ const SetlistPage = ({user}) => {
   const [loadingSongs, setLoadingSongs] = useState(true);
   const [loadingSetlists, setLoadingSetlists] = useState(true);
 
-  useEffect(() => {
-    if (setlists.length) setSelectedListId(setlists[0].id);
-  }, [setlists]);
-
   // Initialize onValue observers to update songs and setlists state on changes
   useEffect(() => {
     const makeArrayFromDB = snapshot => {
@@ -44,6 +40,7 @@ const SetlistPage = ({user}) => {
       setSetlistMap(snapshot.val());
       const lists = makeArrayFromDB(snapshot).reverse();
       setSetlists(lists);
+      if (lists.length > 0 && !selectedListId) setSelectedListId(lists[0].id)
       setLoadingSetlists(false);
     });
     

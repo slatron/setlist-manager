@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref } from 'firebase/database';
-import { config } from '/src/secrets';
+import { firebaseConfig } from '/src/secrets';
 import {
   getAuth,
   signInAnonymously,
@@ -12,7 +12,7 @@ import {
 } from 'firebase/auth';
 
 // Initialize DB
-const app = initializeApp(config);
+const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const songlistRef = ref(db, 'data/songLists');
 const songsRef = ref(db, 'data/songs');

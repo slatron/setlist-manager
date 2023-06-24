@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2023-06-23
+
+### Changed
+
+- using `firebaseConfig` name on config const
+
+### Fixed
+
+- Drag and drop was causing first setlist to be re-selected
+- Replaced `react-beautiful-dnd` with [`@hello-pangea/dnd`](https://github.com/hello-pangea/dnd)
+
 ## [1.0.0] - 2023-06-23
 
 Inital public URL release
@@ -10,8 +21,7 @@ Inital public URL release
 
 - Initial release to public URL on github pages
 - Using `useEffect` to initialize anonymous guest user
-
-## [Unreleased]
+- Drag Drop Setlist Editing UI
 
 ## [0.0.0] - 2023-06-21
 
