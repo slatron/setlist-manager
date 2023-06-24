@@ -30,7 +30,7 @@ const Drawer = ({drawerActive = false, user, toggleDrawer}) => {
           </>
         )}
         <li>
-          <a href="http://www.mikeslater.com">mikeslater.com</a>
+          <a href="https://slatron.github.io/">mikeslater.com</a>
         </li>
       </ul>
     </nav>
