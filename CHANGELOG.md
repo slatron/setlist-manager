@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2023-06-23
+
+### Added
+
+- added eslint config
+- going with semicolons for the project
+
+### Fixed
+
+- better drag drop bugfix
+
 ## [1.0.1] - 2023-06-23
 
 ### Changed

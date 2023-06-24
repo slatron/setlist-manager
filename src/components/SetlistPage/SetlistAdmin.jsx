@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import AddSong from './AddSong';
 import AddSetlist from './AddSetlist';
 
-import './setlist-admin.css'
+import './setlist-admin.css';
 
 const SetlistAdmin = ({handleAddSong, handleAddSetlist, handleDeleteList, handleRenameSetlist, songsNotInList, title}) => {
   const [enableDeleteList, setEnableDeleteList] = useState(false);
@@ -39,8 +39,8 @@ const SetlistAdmin = ({handleAddSong, handleAddSetlist, handleDeleteList, handle
       <h3>Add New Setlist</h3>
       <AddSetlist handleAddSetlist={handleAddSetlist} />
     </div>
-  )
-}
+  );
+};
 
 SetlistAdmin.propTypes = {
   handleAddSong: PropTypes.func,

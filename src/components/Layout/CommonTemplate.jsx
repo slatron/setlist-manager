@@ -5,7 +5,7 @@ import Drawer from './Drawer/Drawer';
 import { Link } from 'react-router-dom';
 import api from '/src/api';
 
-import './CommonTemplate.css'
+import './CommonTemplate.css';
 const CommonTemplate = ({children, user}) => {
   const [drawerActive, setDrawerActive] = useState(false);
   const toggleDrawer = () => setDrawerActive(prev => !prev);
@@ -31,12 +31,12 @@ const CommonTemplate = ({children, user}) => {
         {children}
       </main>
     </>
-  )
-}
+  );
+};
 
 CommonTemplate.propTypes = {
   children: PropTypes.element,
   user: PropTypes.object.isRequired
-}
+};
 
-export default CommonTemplate
+export default CommonTemplate;

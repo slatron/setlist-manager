@@ -49,7 +49,7 @@ const RegisterUserForm = () => {
         <button disabled={!formData.email || !formData.pass || (formData.pass !== formData.confirm)} type="submit">submit</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default RegisterUserForm;

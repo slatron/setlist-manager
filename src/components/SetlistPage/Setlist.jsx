@@ -1,32 +1,33 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 const abbr = title => {
   let newTitle;
   switch (title) {
-    case 'Mandolin':
-      newTitle = 'Mando';
-      break;
-    case 'Harmonica':
-      newTitle = 'Harp';
-      break;
-    case 'Guitar':
-      newTitle = 'Guitar';
-      break;
-    case 'Fiddle':
-      newTitle = 'Fidd';
-      break;
-    case 'Lap Steel':
-      newTitle = 'Lap';
-      break;
-    case 'Electric':
-      newTitle = 'Elec';
-      break;
-    default:
-      newTitle = title;
+  case 'Mandolin':
+    newTitle = 'Mando';
+    break;
+  case 'Harmonica':
+    newTitle = 'Harp';
+    break;
+  case 'Guitar':
+    newTitle = 'Guitar';
+    break;
+  case 'Fiddle':
+    newTitle = 'Fidd';
+    break;
+  case 'Lap Steel':
+    newTitle = 'Lap';
+    break;
+  case 'Electric':
+    newTitle = 'Elec';
+    break;
+  default:
+    newTitle = title;
   }
-  return newTitle
-}
+  return newTitle;
+};
 
 const Setlist = ({
   editMode,
@@ -66,7 +67,7 @@ const Setlist = ({
   const onDragEnd = result => {
     if (!result.destination || !editMode) return;
     handleReorderSetlist(result.source.index, result.destination.index);
-  }
+  };
 
   return  (
     <div className={editMode ? 'edit-mode songlist-container' : 'songlist-container'}>
@@ -96,8 +97,8 @@ const Setlist = ({
         </DragDropContext>
       }
     </div>
-  )
-}
+  );
+};
 
 Setlist.propTypes = {
   setlist: PropTypes.object,
@@ -108,7 +109,7 @@ Setlist.propTypes = {
   showMike: PropTypes.bool,
   showCarl: PropTypes.bool,
   highlight: PropTypes.string
-}
+};
 
 
 export default Setlist;

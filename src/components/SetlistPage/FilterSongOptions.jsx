@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const FilterSongOptions = ({filter, setFilter}) => (
@@ -9,6 +10,6 @@ const FilterSongOptions = ({filter, setFilter}) => (
 FilterSongOptions.propTypes = {
   filter: PropTypes.string,
   setFilter: PropTypes.func
-}
+};
 
 export default FilterSongOptions;

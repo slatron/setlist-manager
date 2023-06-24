@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import api from '/src/api';
 import {onValue, get, set, push, remove} from 'firebase/database';
@@ -34,13 +34,17 @@ const SetlistPage = ({user}) => {
         item.id = id;
         return item;
       });
-    }
+    };
     
     const songlistsRef = onValue(api.getSonglistsRef(), snapshot => {
       setSetlistMap(snapshot.val());
       const lists = makeArrayFromDB(snapshot).reverse();
       setSetlists(lists);
-      if (lists.length > 0 && !selectedListId) setSelectedListId(lists[0].id)
+      // if current selectedListId is unset, set to first list
+      setSelectedListId(current => {
+        if (lists.length > 0 && current === null) return lists[0].id;
+        return current;
+      });
       setLoadingSetlists(false);
     });
     
@@ -54,7 +58,7 @@ const SetlistPage = ({user}) => {
     return () => {
       songlistsRef();
       songsRef();
-    }
+    };
   }, []);
 
   const handleRemoveSong = songId => {
@@ -96,7 +100,7 @@ const SetlistPage = ({user}) => {
     } else {
       setEditMode(edit => !edit);
     }
-  }
+  };
 
 
   const handleRenameSetlist = title => {
@@ -112,7 +116,7 @@ const SetlistPage = ({user}) => {
     const songlistsRef = api.getSonglistsRef();
     const newListRef = push(songlistsRef);
     set(newListRef, {title});
-  }
+  };
 
   const handleDeleteList = () => {
     if (setlists.length === 1) {
@@ -121,28 +125,28 @@ const SetlistPage = ({user}) => {
       const firstListId = setlists[0].id;
       const newListId = firstListId === selectedListId ? setlists[1].id : firstListId;
       const songlistRef = api.getSonglistRef(selectedListId);
-      remove(songlistRef)
+      remove(songlistRef);
       setSelectedListId(newListId);
     }
-  }
+  };
 
   const handleAddSong = songId => {
     const songlistSongsRef = api.getSonglistSongsRef(selectedListId);
     get(songlistSongsRef).then(songs => {
       const songsData = songs.val() || {};
-      const setlistObj = setlistMap[selectedListId]
+      const setlistObj = setlistMap[selectedListId];
       const songsObj = setlistObj?.songs || {};
-      const newLastNumber = Object.keys(songsObj).length
+      const newLastNumber = Object.keys(songsObj).length;
       songsData[songId] = newLastNumber;
       set(songlistSongsRef, songsData);
     });
-  }
+  };
 
-  if (loadingSetlists || loadingSongs) return <p>Loading...</p>
+  if (loadingSetlists || loadingSongs) return <p>Loading...</p>;
 
   if (selectedListId === null) setSelectedListId(setlists[0].id);
 
-  const setlistObj = setlistMap[selectedListId || setlists[0].id]
+  const setlistObj = setlistMap[selectedListId || setlists[0].id];
   const songsObj = setlistObj?.songs || {};
   const includedSongIds =  Object.keys(songsObj);
   const songsNotInList = songs.filter(s => !includedSongIds.includes(s.id));
@@ -190,8 +194,8 @@ const SetlistPage = ({user}) => {
         />
       </div>
     </CommonTemplate>
-  )
-}
+  );
+};
 
 SetlistPage.propTypes = {
   user: PropTypes.object.isRequired

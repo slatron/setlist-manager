@@ -27,7 +27,7 @@ const ForgotPasswordForm = () => {
         <button disabled={!formData.email} type="submit">submit</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default ForgotPasswordForm;

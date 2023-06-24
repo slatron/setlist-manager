@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import api from '../../api';
 import {onValue, off} from 'firebase/database';
@@ -21,7 +21,7 @@ const SongsPage = ({user}) => {
         item.id = id;
         return item;
       });
-    }
+    };
     
     const songsRef = api.getSongsRef();
     onValue(songsRef, snapshot => {
@@ -34,16 +34,16 @@ const SongsPage = ({user}) => {
 
     return () => {
       off(songsRef);
-    }
+    };
   }, []);
 
   useEffect(() => {
     if (selectedSong !== 'none') {
-      setSelectedSongData(songs.find(s => s.id === selectedSong))
+      setSelectedSongData(songs.find(s => s.id === selectedSong));
     }
-  }, [selectedSong, songs])
+  }, [selectedSong, songs]);
   
-  if (loadingSongs) return <p>Loading...</p>
+  if (loadingSongs) return <p>Loading...</p>;
 
   const handleSetFilter = e => {
     setFilter(e.target.value);
@@ -53,9 +53,9 @@ const SongsPage = ({user}) => {
       setFilteredSongs(newFilteredSongs);
       setSelectedSong('none');
     } else {
-      setFilteredSongs([...songs])
+      setFilteredSongs([...songs]);
     }
-  }
+  };
 
   const handleAddSong = () => {
     setSelectedSong('none');
@@ -76,11 +76,11 @@ const SongsPage = ({user}) => {
     <CommonTemplate {...{user}}>
       <div className="page-songs">
         <div className="songlist-container">
-            <h2>Edit Songs</h2>
-            <div className="field-pair">
-              <label htmlFor="song-filter">Filter Songs</label>
-              <input onChange={handleSetFilter} value={filter} />
-            </div>
+          <h2>Edit Songs</h2>
+          <div className="field-pair">
+            <label htmlFor="song-filter">Filter Songs</label>
+            <input onChange={handleSetFilter} value={filter} />
+          </div>
           <div className="field-pair">
             <label htmlFor="song-select">Edit Song</label>
             <select id="song-select" value={selectedSong} onChange={e => setSelectedSong(e.target.value)} >
@@ -95,8 +95,8 @@ const SongsPage = ({user}) => {
         </div>
       </div>
     </CommonTemplate>
-  )
-}
+  );
+};
 
 SongsPage.propTypes = {
   user: PropTypes.object.isRequired

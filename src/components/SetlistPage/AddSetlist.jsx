@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import {useState} from 'react';
 
@@ -20,11 +21,11 @@ const AddSetlist = ({handleAddSetlist}) => {
         <button disabled={!listTitle.length} onClick={clearTitleAndSubmit}>+ Add New Setlist</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 AddSetlist.propTypes = {
   handleAddSetlist: PropTypes.func
-}
+};
 
 export default AddSetlist;

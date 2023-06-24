@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import FilterSongOptions from './FilterSongOptions';
 
 const AddSong = ({songs,  handleAddSong}) => {
@@ -7,16 +7,16 @@ const AddSong = ({songs,  handleAddSong}) => {
 
   const [availableSongs,  setAvailableSongs] = useState([...songs]);
   const [filteredSongs, setFilteredSongs] = useState([...availableSongs]);
-  const [selectedSong, setSelectedSong] = useState(filteredSongs[0]?.id)
+  const [selectedSong, setSelectedSong] = useState(filteredSongs[0]?.id);
 
   const handleSaveSong = () =>  {
-    handleAddSong(selectedSong)
+    handleAddSong(selectedSong);
     const nowAvailable = availableSongs.filter(s => s.id !== selectedSong);
     setAvailableSongs(nowAvailable);
     setFilteredSongs([...nowAvailable]);
     setSelectedSong(nowAvailable[0]?.id);
     setFilter('');
-  }
+  };
 
   const handleSetFilter = e => {
     setFilter(e.target.value);
@@ -26,9 +26,9 @@ const AddSong = ({songs,  handleAddSong}) => {
       setFilteredSongs(newFilteredSongs);
       setSelectedSong(newFilteredSongs[0]?.id);
     } else {
-      setFilteredSongs([...songs])
+      setFilteredSongs([...songs]);
     }
-  }
+  };
 
   return  (
     <div>
@@ -47,12 +47,12 @@ const AddSong = ({songs,  handleAddSong}) => {
         <button type="button" onClick={handleSaveSong}>+ Add</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 AddSong.propTypes = {
   songs: PropTypes.array,
   handleAddSong: PropTypes.func
-}
+};
 
 export default AddSong;

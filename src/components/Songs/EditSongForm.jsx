@@ -33,10 +33,10 @@ const EditSongForm = ({song, handleCancel}) => {
     get(songlistsRef).then(songs => {
       const songsData = songs.val();
       const songIdsByList = Object.values(songsData).map(l => l.songs).map(i => Object.keys(i));
-      const songInUse = songIdsByList.some(l => l.find(i => i === id))
+      const songInUse = songIdsByList.some(l => l.find(i => i === id));
 
       if (songInUse) {
-        alert('That song is currently on a setlist. Remove from all setlists to delete.')
+        alert('That song is currently on a setlist. Remove from all setlists to delete.');
       } else {
         const songRef = api.getSongRef(id);
         remove(songRef);
@@ -110,8 +110,8 @@ const EditSongForm = ({song, handleCancel}) => {
         }
       </form>
     </>
-  )
-}
+  );
+};
 
 EditSongForm.propTypes = {
   song: PropTypes.object,
@@ -122,4 +122,4 @@ EditSongForm.defaultProps = {
   song: {}
 };
 
-export default EditSongForm
+export default EditSongForm;

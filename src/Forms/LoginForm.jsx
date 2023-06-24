@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import api from '../api'
-import {useFormData} from './useFormData'
-import './forms.css'
+import api from '../api';
+import {useFormData} from './useFormData';
+import './forms.css';
 import CommonTemplate from '/src/components/Layout/CommonTemplate';
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 const LoginForm = ({user}) => {
   const {formData, handleSubmit, handleInputChange} = useFormData(handleLogin);
@@ -51,8 +51,8 @@ const LoginForm = ({user}) => {
         </form>
       </div>
     </CommonTemplate>
-  )
-}
+  );
+};
 
 LoginForm.propTypes = {
   user: PropTypes.object.isRequired

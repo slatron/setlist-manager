@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import './Drawer.css'
+import PropTypes from 'prop-types';
+import './Drawer.css';
 import { Link } from 'react-router-dom';
 import { PROMPT_LOGIN } from '/src/globals';
 
@@ -34,14 +34,14 @@ const Drawer = ({drawerActive = false, user, toggleDrawer}) => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
 Drawer.propTypes = {
   drawerActive: PropTypes.bool,
   toggleDrawer: PropTypes.func,
   user: PropTypes.object.isRequired
 
-}
+};
 
-export default Drawer
+export default Drawer;

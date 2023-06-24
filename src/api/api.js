@@ -25,23 +25,23 @@ const methods = {
   getSonglistSongsRef: id => ref(db, `data/songLists/${id}/songs`),
   
   login: (email, pass) => {
-    const auth = getAuth()
+    const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, pass)
-      .then((response) => {
-        console.log('...you are signed in!')
+      .then(() => {
+        console.log('...you are signed in!');
       });
   },
 
   guestLogin: () => {
     const auth = getAuth();
     signInAnonymously(auth)
-      .then((response) => {
-        console.log('...you are signed in as a guest!')
+      .then(() => {
+        console.log('...you are signed in as a guest!');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log({errorCode, errorMessage})
+        console.log({errorCode, errorMessage});
       });
   },
 
@@ -49,29 +49,29 @@ const methods = {
     const auth = getAuth();
     return signOut(auth)
       .then(() => console.log('You have signed out'))
-      .catch(error => console.log('Error signing out: ', error))
+      .catch(error => console.log('Error signing out: ', error));
   },
 
   registerUser: (email, pass) => {
     const auth = getAuth();
     return createUserWithEmailAndPassword(auth, email, pass)
       .then(() => alert(`Created new user ${email}, logging in now.`))
-      .catch(error => console.errorr('Error registering user: ', error))
+      .catch(error => console.errorr('Error registering user: ', error));
   },
 
   updatePassword: email => {
     const auth = getAuth();
     return sendPasswordResetEmail(auth, email)
       .then(() => alert(`Password Update Email Sent to ${email}`))
-      .catch(error => console.error('Error updating password: ', error))
+      .catch(error => console.error('Error updating password: ', error));
   },
 
   getLoginObserver: callback => {
     const auth = getAuth();
     return onAuthStateChanged(auth, user => {
-      user = user ? user : {}
-      callback(user)
-    })
+      user = user ? user : {};
+      callback(user);
+    });
   }
 };
 
