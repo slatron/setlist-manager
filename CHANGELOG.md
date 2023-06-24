@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
-- Drag and drop was causing first setlist to be re-selected
+- [Drag and drop was causing first setlist to be re-selected](https://trello.com/c/q4s8CWOE)
 - Replaced `react-beautiful-dnd` with [`@hello-pangea/dnd`](https://github.com/hello-pangea/dnd)
 
 ## [1.0.0] - 2023-06-23
