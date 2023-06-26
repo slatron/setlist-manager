@@ -78,7 +78,11 @@ export const firebaseConfig = {
 
 `data.songs` have `title`, `key` and `singer` keys. There is a key for a for each player in `meta.players` that plays on the song.
 
-`data.songLists` have `title` and `songs`. Songs are the -ids of `data.sonsgs`
+`data.songLists` have `title` and `songs`. Songs are the -ids of `data.songs`. Their int value is the order of this song in the list.
+
+`meta` contains `players` and `instruments`. These are references in `song` records.
+
+`meta.players` records contain `name` values. These `player` records can be linked to an `instrument` in a `song`. 
 
 ```json
 {
@@ -86,7 +90,7 @@ export const firebaseConfig = {
     "songLists": {
       "-id": {
         "songs": {
-          "-songId": "int" // order in songList
+          "-songId": "int"
         },
         "title": "String"
       },
