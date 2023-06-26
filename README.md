@@ -88,7 +88,7 @@ export const firebaseConfig = {
 {
   "data": {
     "songLists": {
-      "-id": {
+      "-songListId": {
         "songs": {
           "-songId": "int"
         },
@@ -96,24 +96,24 @@ export const firebaseConfig = {
       },
     },
     "songs": {
-      "-id": {
+      "-songId": {
         "id": "-songId",
         "title": "String",
         "key": "String",
         "singer": "-playerId",
-        "-playerId1": "-instrumentId1",
-        "-playerId2": "instrumentId2"
+        "-playerId": "-instrumentId",
+        "-playerId": "-instrumentId"
       },
     }
   },
   "meta": {
     "instruments": {
-      "-id": {
+      "-instrumentId": {
         "title": "String"
       }
     },
     "players": {
-      "-id": {
+      "-playerId": {
         "name": "String"
       }
     }
