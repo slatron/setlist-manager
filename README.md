@@ -74,3 +74,45 @@ export const firebaseConfig = {
 };
 ```
 
+### Firebase "Schema"
+
+`data.songs` have `title`, `key` and `singer` keys. There is a key for a for each player in `meta.players` that plays on the song.
+
+`data.songLists` have `title` and `songs`. Songs are the -ids of `data.sonsgs`
+
+```json
+{
+  "data": {
+    "songLists": {
+      "-id": {
+        "songs": {
+          "-songId": "int" // order in songList
+        },
+        "title": "String"
+      },
+    },
+    "songs": {
+      "-id": {
+        "id": "-songId",
+        "title": "String",
+        "key": "String",
+        "singer": "-playerId",
+        "-playerId1": "-instrumentId1",
+        "-playerId2": "instrumentId2"
+      },
+    }
+  },
+  "meta": {
+    "instruments": {
+      "-id": {
+        "title": "String"
+      }
+    },
+    "players": {
+      "-id": {
+        "name": "String"
+      }
+    }
+  }
+}
+```

@@ -19,4 +19,3 @@ git push -f git@github.com:slatron/setlist-manager.git master:gh-pages
 # Restore main branch and directory
 cd ..
 git checkout main
-
