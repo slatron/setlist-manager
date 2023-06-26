@@ -4,6 +4,10 @@ This was built to help my band track common setlists built on our song catalog. 
 
 I am evolving it here to explore building an authenticated app with React and firebase. I'm using fiebase anonymous authentication to provide a basic read-only site. Logging in with an admin password enables all CRUD functions in the React UI. See the UI diagram below for moe details.
 
+#### POC Notes
+
+This is currently a POC. UI state is in hardcoded `useState`. The hardcoded band member names and instruments will be moved to the database. From there, I plan to move all state to a `useReducer` hook. 
+
 ### Main Requirements
 
 - Store songs band can play
@@ -78,11 +82,11 @@ export const firebaseConfig = {
 
 `data.songs` have `title`, `key` and `singer` keys. There is a key for a for each player in `meta.players` that plays on the song.
 
-`data.songLists` have `title` and `songs`. Songs are the -ids of `data.songs`. Their int value is the order of this song in the list.
+`data.songLists` have `title` and `songs`. Songs are the -ids of `data.songs`. Their `int` value is the order of this song in the list.
 
-`meta` contains `players` and `instruments`. These are references in `song` records.
+`data.players` and `data.instruments` are referenced in `song` records. They can be edited by admin users via the songs page.
 
-`meta.players` records contain `name` values. These `player` records can be linked to an `instrument` in a `song`. 
+`data.players` records contain `name` values. `player` records can be linked to an `instrument` in a `song`. 
 
 ```json
 {
@@ -104,9 +108,7 @@ export const firebaseConfig = {
         "-playerId": "-instrumentId",
         "-playerId": "-instrumentId"
       },
-    }
-  },
-  "meta": {
+    },
     "instruments": {
       "-instrumentId": {
         "title": "String"
