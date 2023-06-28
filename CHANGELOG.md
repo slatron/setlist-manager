@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2023-06-28
+
+Spotted bug in chrome where users coming back to the site cannot get past loading screen
+
+- deploying this version to fix console errors around manifest
+
+### Fixed
+
+- site.manifest references from "/" to "./"
+
+
 ## [1.0.2] - 2023-06-23
 
 ### Added
