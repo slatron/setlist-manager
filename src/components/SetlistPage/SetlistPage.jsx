@@ -12,6 +12,9 @@ import HighlightControls from './HighlightControls';
 import './setlist.css';
 
 const SetlistPage = ({user}) => {
+  // This was a quick prototype to get the state up
+  // TODO: - design for using member names from admin
+  //       - move state to single useReducer hook
   const [editMode, setEditMode] = useState(false);
   const [selectedListId, setSelectedListId] = useState(null);
   const [setlists, setSetlists] = useState([]);

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2023-06-29
+
+mobile text inputs were breaking form boundry
+
+### Fixed
+
+- added container divs around inputs
+- sets `input width: 100%` and container `flex: 2 1 auto`
+
 ## [1.0.3] - 2023-06-28
 
 Spotted bug in chrome where users coming back to the site cannot get past loading screen
@@ -11,7 +20,6 @@ Spotted bug in chrome where users coming back to the site cannot get past loadin
 ### Fixed
 
 - site.manifest references from "/" to "./"
-
 
 ## [1.0.2] - 2023-06-23
 

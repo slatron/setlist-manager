@@ -27,6 +27,12 @@
   text-align: right;
   font-weight: bold;
 }
+.field-pair .input-container {
+  flex: 2 1 auto;
+}
+.field-pair input {
+  width: 100%;
+}
 .form-page-container {
   margin: var(--base-unit);
 }

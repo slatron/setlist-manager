@@ -29,23 +29,27 @@ const LoginForm = ({user}) => {
         <form className="basic-form" onSubmit={handleSubmit}>
           <div className="field-pair">
             <label htmlFor="login_email">Email </label>
-            <input
-              type="email"
-              name="login_email"
-              id="login_email"
-              value={formData.login_email || ''}
-              onChange={handleInputChange}
-            />
+            <div className="input-container">
+              <input
+                type="email"
+                name="login_email"
+                id="login_email"
+                value={formData.login_email || ''}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
           <div className="field-pair">
             <label htmlFor="login_pass">Password </label>
-            <input
-              id="login_pass"
-              type="password"
-              name="login_pass"
-              value={formData.login_pass || ''}
-              onChange={handleInputChange}
-            />
+            <div className="input-container">
+              <input
+                id="login_pass"
+                type="password"
+                name="login_pass"
+                value={formData.login_pass || ''}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
           <button disabled={!formData.login_email || !formData.login_pass} type="submit">login</button>
         </form>
