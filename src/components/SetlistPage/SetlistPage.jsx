@@ -11,6 +11,18 @@ import HighlightControls from './HighlightControls';
 
 import './setlist.css';
 
+const players = {
+  Ted: {
+    name: 'Ted',
+  },
+  Carl: {
+   name: 'Carl',
+  },
+  Mike: {
+    name: 'Mike',
+  }
+};
+
 const SetlistPage = ({user}) => {
   // This was a quick prototype to get the state up
   // TODO: - design for using member names from admin
@@ -20,8 +32,11 @@ const SetlistPage = ({user}) => {
   const [setlists, setSetlists] = useState([]);
   const [songs, setSongs] = useState([]);
 
+  const [showPlayers, setShowPlayers] = useState(Object.keys(players));
+
   const [showMike, setShowMike]   = useState(true);
   const [showCarl, setShowCarl]   = useState(true);
+  const [showTed, setShowTed]   = useState(true);
   const [highlight, setHighlight] = useState('singer');
 
   const [setlistMap, setSetlistMap] = useState({});
@@ -173,10 +188,14 @@ const SetlistPage = ({user}) => {
         <HighlightControls
           inLegend={inLegend}
           highlight={highlight}
+          setShowPlayers={setShowPlayers}
+          showPlayers={showPlayers}
           showMike={showMike}
           showCarl={showCarl}
+          showTed={showTed}
           setShowMike={setShowMike}
           setShowCarl={setShowCarl}
+          setShowTed={setShowTed}
           setHighlight={setHighlight}/>
         <SelectSetlist
           setSelectedListId={setSelectedListId}
@@ -193,6 +212,7 @@ const SetlistPage = ({user}) => {
           handleReorderSetlist={handleReorderSetlist}
           showMike={showMike}
           showCarl={showCarl}
+          showTed={showTed}
           highlight={highlight}
         />
       </div>

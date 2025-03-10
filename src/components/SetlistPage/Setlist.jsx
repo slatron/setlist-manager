@@ -37,6 +37,7 @@ const Setlist = ({
   handleReorderSetlist,
   showMike,
   showCarl,
+  showTed,
   highlight
 }) => {
   const songs = setlist.songs || {};
@@ -56,6 +57,7 @@ const Setlist = ({
             <td className="song-title">{idx + 1}) {songsMap[songId].title}</td>
             {showMike && <td className="name-col">{abbr(songsMap[songId].mike)}</td>}
             {showCarl && <td className="name-col">{abbr(songsMap[songId].carl)}</td>}
+            {showTed && <td className="name-col">{abbr(songsMap[songId].ted)}</td>}
             <td className="short-col song-key">{songsMap[songId].key}</td>
             {editMode && <td className="short-col"><button className="remove-button" type="button" onClick={() => handleRemoveSong(songId)}>X</button></td>}
           </tr>
@@ -83,6 +85,7 @@ const Setlist = ({
                     <th className="song-title"></th>
                     {showMike && <th className="name-col">Mike</th>}
                     {showCarl && <th className="name-col">Carl</th>}
+                    {showTed && <th className="name-col">Ted</th>}
                     <th className="short-col song-key">key</th>
                     {editMode && <th className="short-col"></th>}
                   </tr>
@@ -108,6 +111,7 @@ Setlist.propTypes = {
   editMode: PropTypes.bool,
   showMike: PropTypes.bool,
   showCarl: PropTypes.bool,
+  showTed: PropTypes.bool,
   highlight: PropTypes.string
 };
 

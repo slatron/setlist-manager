@@ -15,7 +15,7 @@ const ForgotPasswordForm = () => {
       <form className={showForm ? 'basic-form' : 'hidden basic-form'} onSubmit={handleSubmit}>
         <h3>Request New Password</h3>
         <div className="field-pair">
-          <label htmlFor="forgot_email">Email </label>
+          <label htmlFor="email">Email </label>
           <input
             type="email"
             name="email"

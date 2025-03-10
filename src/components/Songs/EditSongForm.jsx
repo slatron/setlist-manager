@@ -90,6 +90,12 @@ const EditSongForm = ({song, handleCancel}) => {
           </select>
         </div>
         <div className="field-pair">
+          <label htmlFor="mike">Ted</label>
+          <select name="ted" value={formData.ted} onChange={handleInputChange}>
+            {instrumentOptions.map(o => <option key={o} value={o}>{o}</option>)}
+          </select>
+        </div>
+        <div className="field-pair">
           <label></label>
           <button type="submit">save</button>
           <button className="cancel" type="button" onClick={handleCancel}>cancel</button>

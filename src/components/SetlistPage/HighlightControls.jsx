@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HighlightControls = ({inLegend, highlight, showMike, showCarl, setShowMike, setShowCarl, setHighlight}) => (
+const HighlightControls = ({inLegend, highlight, showMike, showCarl, showTed, setShowMike, setShowCarl, setShowTed, setHighlight}) => (
   <>
     <div className="highlight-controls">
       <select id="highlight" value={highlight} onChange={e => setHighlight(e.target.value)}>
         <option value="">None</option>
         <option value="mike">Mike</option>
         <option value="carl">Carl</option>
+        <option value="carl">Ted</option>
         <option value="singer">Singer</option>
       </select>
       {highlight !== '' &&
@@ -21,6 +22,7 @@ const HighlightControls = ({inLegend, highlight, showMike, showCarl, setShowMike
           {inLegend.has('Harmonica') && <span className="color_Harmonica">Harmonica</span>}
           {inLegend.has('Mike') && <span className="color_Mike">Mike</span>}
           {inLegend.has('Carl') && <span className="color_Carl">Carl</span>}
+          {inLegend.has('Ted') && <span className="color_Ted">Ted</span>}
         </div>
       }
       <div className="input-group">
@@ -34,7 +36,13 @@ const HighlightControls = ({inLegend, highlight, showMike, showCarl, setShowMike
         <div className="cb_input">
           <input id="cb_carl" type="checkbox" checked={showCarl} onChange={e => setShowCarl(e.target.checked)}/>
         </div>
-      </div>  
+      </div> 
+      <div className="input-group">
+        <label htmlFor="cb_ted">Ted</label>
+        <div className="cb_input">
+          <input id="cb_ted" type="checkbox" checked={showTed} onChange={e => setShowTed(e.target.checked)}/>
+        </div>
+      </div>        
     </div>
   </>
 );
@@ -44,8 +52,10 @@ HighlightControls.propTypes = {
   highlight: PropTypes.string,
   showMike: PropTypes.bool,
   showCarl: PropTypes.bool,
+  showTed: PropTypes.bool,
   setShowMike: PropTypes.func,
   setShowCarl: PropTypes.func,
+  setShowTed: PropTypes.func,
   setHighlight: PropTypes.func,
 };
 

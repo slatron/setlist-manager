@@ -15,7 +15,7 @@ const RegisterUserForm = () => {
       <form className={showRegisterForm ? 'basic-form' : 'hidden basic-form'} onSubmit={handleSubmit}>
         <h3>Madbread Setlist App Register User</h3>
         <div className="field-pair">
-          <label htmlFor="register_email">Email </label>
+          <label htmlFor="email">Email </label>
           <input
             type="email"
             name="email"
