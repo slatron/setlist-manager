@@ -12,9 +12,11 @@ cd dist
 
 # Init new git repository and commit to master branch
 git init
-git add -A
+git add . -A
 git commit -m 'deploy'
-git push -f git@github.com:slatron/setlist-manager.git master:gh-pages
+# git push -f git@github.com:slatron/setlist-manager.git master:gh-pages
+git push origin :gh-pages
+git subtree push --prefix dist origin gh-pages
 
 # Restore main branch and directory
 cd ..
