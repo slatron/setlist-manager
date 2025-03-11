@@ -2,11 +2,11 @@
 
 This was built to help my band track common setlists built on our song catalog. It allows us to store songs and add them to setlists. This makes it easy to save and quickly edit setlists as we add songs and play shows.
 
-I am evolving it here to explore building an authenticated app with React and firebase. I'm using fiebase anonymous authentication to provide a basic read-only site. Logging in with an admin password enables all CRUD functions in the React UI. See the UI diagram below for moe details.
+I am evolving it here to explore building an authenticated app with React and firebase. I'm using fiebase anonymous authentication to provide a basic read-only site. Logging in with an admin password enables all CRUD functions in the React UI.
 
 #### POC Notes
 
-This is currently a POC. UI state is in hardcoded `useState`. The hardcoded band member names and instruments will be moved to the database. From there, I plan to move all state to a `useReducer` hook. 
+This is currently a POC. UI state is in hardcoded `useState`. The hardcoded band member names and instruments will be moved to the database.
 
 ### Main Requirements
 
